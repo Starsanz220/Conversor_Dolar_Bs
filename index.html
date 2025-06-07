@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+body {
+            font-family: Arial, sans-serif;
+            display: flex;             /* Habilita Flexbox */
+            justify-content: center;   /* Centra horizontalmente */
+            align-items: center;       /* Centra verticalmente */
+            min-height: 100vh;         /* Ocupa toda la altura de la ventana para el centrado vertical */
+            margin: 0;                 /* Elimina márgenes por defecto */
+            background-color: #333;    /* Fondo oscuro de la página */
+            color: #eee;               /* Color de texto claro (para el body) */
+        }
+
+        .container {
+            background-color: white;   /* Fondo blanco del cuadrado */
+            padding: 30px;             /* Espacio interno */
+            border-radius: 10px;       /* Bordes redondeados */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+            text-align: center;        /* Centra el texto y elementos dentro del cuadrado */
+            width: 90%;                /* Ancho responsivo */
+            max-width: 400px;          /* Ancho máximo */
+            color: #333;               /* Color de texto oscuro para el contenido del cuadrado */
+        }
+
+        h1 {
+            color: #007bff;            /* Azul para el título */
+            margin-bottom: 20px;
+        }
+
+        span { /* Estilo para las etiquetas de texto */
+            display: block;            /* Cada span en su propia línea */
+            margin-bottom: 8px;
+            font-weight: bold;
+            text-align: left;          /* Alinea el texto a la izquierda */
+            color: #555;
+        }
+
+        input[type="number"], select { /* Estilo para los campos de entrada y selector */
+            width: calc(100% - 20px);  /* Ocupa casi todo el ancho */
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button { /* Estilo para el botón */
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p { /* Estilo para el párrafo del resultado */
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        #resultadoValor { /* Estilo específico para el span del valor */
+            font-weight: bold;
+            color: #28a745;
+        }
+
+    </style>
+</head>
+<body>
+   <div class="container"> <h1>Conversor</h1>
+    <span>Valor:</span>
+    <input type="number" id="valor" placeholder="Ingrese el valor">
+     <span>Seleccione la Conversion:</span>
+     <select  id="tipo">
+        <option value="DolaresBolivares">
+            Dolares a Bolivares
+        </option>
+        <option value="BolivaresDolares">
+            Bolivares a Dolares
+        </option>
+     </select>   
+     <Button onclick="Convertir()">Convertir</Button>
+     <p> Resultado: <span id="result" class="resultado" ></span></p>
+
+    <script>
+       function Convertir() {
+            var valor = parseFloat(document.getElementById("valor").value);
+            var tipo = document.getElementById("tipo").value;
+            var resultado;
+
+                    switch (tipo) {
+                        case "DolaresBolivares":
+                        resultado = valor * 98.96770 
+                        document.getElementById("result").innerText = resultado.toFixed(2) + " Bs";
+                        break;
+                        case "BolivaresDolares":
+                        resultado = valor / 98.96770 
+                        document.getElementById("result").innerText = resultado.toFixed(2) + " $";
+                        break;
+
+                    }
+                 
+                }            
+
+
+
+    </script>
+    </div>
+</body>
+</html>
